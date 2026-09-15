@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $products = Product::with('kategori')->latest()->paginate(10);
 
-        return response()->json(ProductCollection::collection($products), Response::HTTP_OK);
+        return response()->json(new ProductCollection($products), Response::HTTP_OK);
     }
 
     public function store(ProductRequest $request)
